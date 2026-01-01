@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CycleGAN Translator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>CycleGAN Photo ↔ Sketch Translator</h1>
+        <p class="subtitle">Upload a photo or sketch to generate its counterpart using the backend API.</p>
+    </header>
+
+    <main>
+        <section class="panel">
+            <h2>1. Upload Image</h2>
+            <form id="upload-form">
+                <label for="image-input" class="dropzone" id="dropzone">
+                    <span id="dropzone-text">Drag & drop an image or click to browse</span>
+                    <input id="image-input" type="file" accept="image/*" hidden>
+                </label>
+                <div class="form-controls">
+                    <button type="submit">Translate</button>
+                    <button type="button" id="reset-btn" class="secondary">Reset</button>
+                </div>
+            </form>
+            <p id="status" class="status">No image selected.</p>
+            <div id="preview" class="preview hidden">
+                <h3>Original Preview</h3>
+                <img id="preview-img" alt="Selected input preview">
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>2. Generated Result</h2>
+            <div id="result" class="result hidden">
+                <p id="result-info"></p>
+                <img id="result-img" alt="Generated translation">
+                <div class="result-actions">
+                    <a id="download-link" href="#" download="translation.png">Download PNG</a>
+                </div>
+            </div>
+            <p id="result-placeholder" class="status">Run a translation to see the output here.</p>
+        </section>
+    </main>
+
+    <footer>
+        <button id="health-check" class="secondary">Check API Health</button>
+        <span id="health-status" class="status"></span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
